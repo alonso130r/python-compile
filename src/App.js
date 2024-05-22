@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import CodeEditor from './CodeEditor';
+import PythonExecutor from './PythonExecutor';
 
 function App() {
+  const [code, setCode] = useState('');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Online Python Compiler</h1>
+      <CodeEditor code={code} setCode={setCode} />
+      <PythonExecutor code={code} />
     </div>
   );
 }
